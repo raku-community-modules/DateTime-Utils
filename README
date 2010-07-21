@@ -10,4 +10,6 @@ in the Rakudo tree as DateTime::strftime.
 It offers some useful exported subroutines to make working with DateTime
 objects much easier.
 
+Use 'ufo' to generate the Makefile for this project.
+See http://github.com/masak/ufo for more details.
 

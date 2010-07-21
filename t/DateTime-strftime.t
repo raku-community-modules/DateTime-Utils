@@ -1,7 +1,7 @@
 use v6;
 use Test;
 
-BEGIN { @*INC.push: 'lib' }
+BEGIN { @*INC.unshift: 'lib' }
 
 plan 2;
 

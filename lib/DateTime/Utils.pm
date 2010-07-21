@@ -79,5 +79,18 @@ module DateTime::Utils {
         September October November December>[$i - 1]
     }
 
+    # This lets you do: $dt2 = $dt.in-timezone(iso-offset('-0800'));
+    # Eventually, I'd like to make a named-offset() for values like 'PST', etc.
+    sub iso-offset(Str $offset) is export(:DEFAULT) {
+        $offset ~~ /^ (Z || (<[\-\+]>) (\d\d)(\d\d)) $/
+            or die "parse-offset() expects an ISO style timezone offset.";
+        if $0 eq 'Z' { return 0; }
+        else {
+            my $seconds = (($0[1]*60 + $0[2]) * 60).Int;
+            $0[0] eq '-' and $seconds = -$seconds;
+            return $seconds;
+        }
+    }
+
 }
 
