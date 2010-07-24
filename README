@@ -13,3 +13,10 @@ objects much easier.
 Use 'ufo' to generate the Makefile for this project.
 See http://github.com/masak/ufo for more details.
 
+=== Example Use Case ===
+
+use DateTime::Utils;
+my $dt = DateTime.now(:timezone(iso-offset('-0800')));
+say "It's "~strftime('%T', $dt)~" at supernovus's place.";
+say "It's "~strftime('%T', $dt.in-timezone(iso-offset('+0200')))~" at masak's place.";
+
