@@ -92,5 +92,10 @@ module DateTime::Utils {
         }
     }
 
+    # Pulled from Perlite::Time, introducing rfc2822 datestamps.
+    sub rfc2822(DateTime $dt=DateTime.now) is export(:DEFAULT) {
+          strftime('%a, %d %b %Y %T %z', $dt);
+    }
+
 }
 
