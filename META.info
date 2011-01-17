@@ -1,0 +1,8 @@
+{
+  "name"        : "DateTime::Utils",
+  "version"     : "*",
+  "description" : "strftime and other DateTime enhancements",
+  "depends"     : [ ],
+  "repo-type"   : "git",
+  "repo-url"    : "git://github.com/supernovus/temporal-utils.git"
+}
