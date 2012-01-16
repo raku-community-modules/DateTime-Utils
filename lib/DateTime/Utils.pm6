@@ -40,9 +40,9 @@ module DateTime::Utils {
             'X' => { $dt.hour.fmt('%02d') ~ ':' ~ $dt.minute.fmt('%02d') ~ ':' ~ $dt.whole-second.fmt('%02d') },
             'y' => { ($dt.year % 100).fmt('%02d') },
             '%' => { '%' },
-            '3' => { (($dt.second % 1)*1000).fmt('%03d') },
-            '6' => { (($dt.second % 1)*1000000).fmt('%06d') },
-            '9' => { (($dt.second % 1)*1000000000).fmt('%09d') },
+            '3N' => { (($dt.second % 1)*1000).fmt('%03d') },
+            '6N' => { (($dt.second % 1)*1000000).fmt('%06d') },
+            '9N' => { (($dt.second % 1)*1000000000).fmt('%09d') },
             'z' => { $dt.timezone ~~ Callable and die "stftime: Can't use 'z' with Callable time zones.";
                      my $o = $dt.timezone;
                      $o
@@ -53,18 +53,8 @@ module DateTime::Utils {
                        !! 'Z' }
         ;
         my $result = '';
-        while $format ~~ / ^ (<-['%']>*) '%' (.)(.*) $ / {
-            unless %substitutions.exists(~$1) { die "unknown strftime format: %$1"; }
-            $result ~= $0 ~ %substitutions{~$1}();
-            $format = ~$2;
-            if $1 eq '3'|'6'|'9' {
-                if $format.substr(0,1) ne 'N' { die "strftime format %$1 must be followed by N"; }
-                $format = $format.substr(1);
-            }
-        }
-        # The subst for masak++'s nicer-strftime branch is NYI
-        # $format .= subst( /'%'(\w|'%')/, { (%substitutions{~$0}
-        #            // die "Unknown format letter '\%$0'").() }, :global );
+         $format .= subst( /'%'(\dN|\w|'%')/, -> $/ { (%substitutions{~$0}
+                    // die "Unknown format letter '$0'").() }, :global );
         return $result ~ $format;
     }
 
