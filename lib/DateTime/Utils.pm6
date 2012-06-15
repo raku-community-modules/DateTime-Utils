@@ -29,7 +29,7 @@ module DateTime::Utils {
             'P' => { ($dt.hour < 12) ?? 'AM' !! 'PM' },
             'r' => { (($dt.hour+23)%12+1).fmt('%02d') ~ ':' ~
                      $dt.minute.fmt('%02d') ~ ':' ~ $dt.whole-second.fmt('%02d')
-                     ~ (($.hour < 12) ?? 'am' !! 'pm') },
+                     ~ (($dt.hour < 12) ?? 'am' !! 'pm') },
             'R' => { $dt.hour.fmt('%02d') ~ ':' ~ $dt.minute.fmt('%02d') },
             's' => { $dt.posix.fmt('%d') },
             't' => { "\t" },
