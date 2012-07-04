@@ -29,8 +29,8 @@ ok $t2 < $t1, 'DateTime < DateTime';
 ok $t1 >= $t2, 'DateTime >= DateTime';
 ok $t2 <= $t1, 'DateTime <= DateTime';
 ok !($t1 == $t2), 'DateTime == DateTime';
-is $t1 cmp $t2, 1, 'DateTime cmp DateTime';
-is $t1 <=> $t2, 1, 'DateTime <=> DateTime';
+is $t1 cmp $t2, 'Decrease', 'DateTime cmp DateTime';
+is $t1 <=> $t2, 'Decrease', 'DateTime <=> DateTime';
 ok $t1 != $t2, 'DateTime != DateTime';
 
 is duration-from-to(30, 'm', 'h'), 0.5, 'duration-to-from() works.';
