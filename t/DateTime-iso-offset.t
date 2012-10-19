@@ -1,7 +1,7 @@
 use v6;
 use Test;
 
-BEGIN { @*INC.unshift: 'lib' }
+#BEGIN { @*INC.unshift: 'lib' }
 
 use DateTime::Utils;
 

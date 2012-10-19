@@ -73,7 +73,7 @@ sub duration-from-to( Numeric $value, DurationUnits $in, DurationUnits $to)
 }
 
 multi infix:<+>(DateTime:D $dt, Numeric:D $x) is export {
-  $*ERR.say: "We're in the proper addition routine.";
+#  $*ERR.say: "We're in the proper addition routine.";
   DateTime.new(($dt.posix + $x).Int, :timezone($dt.timezone), :formatter($dt.formatter))
 }
 
@@ -82,7 +82,7 @@ multi infix:<+>(Numeric:D $x, DateTime:D $dt) is export {
 }
 
 multi infix:«-»(DateTime:D $dt, Numeric:D $x) is export {
-  $*ERR.say: "We're in the proper substraction routine.";
+#  $*ERR.say: "We're in the proper substraction routine.";
   DateTime.new(($dt.posix - $x).Int, :timezone($dt.timezone), :formatter($dt.formatter))
 }
 
