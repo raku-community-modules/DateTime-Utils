@@ -2,6 +2,8 @@ use v6;
 
 module DateTime::Utils {
 
+    constant RFC2822 is export = '%a, %d %b %Y %T %z';
+
     multi sub strftime( Str $format is copy, DateTime $dt ) is export(:DEFAULT) {
         my %substitutions =
             # Standard substitutions for yyyy mm dd hh mm ss output.
@@ -82,8 +84,9 @@ module DateTime::Utils {
         }
     }
 
-    # Pulled from Perlite::Time, introducing rfc2822 datestamps.
+    ## This will be removed in an upcoming release, so update your code now.
     sub rfc2822(DateTime $dt=DateTime.now(:timezone(0))) is export(:DEFAULT) {
+          warn 'rfc2822($dt) function is deprecated, use strftime(RFC2822, $dt) instead.';
           strftime('%a, %d %b %Y %T %z', $dt);
     }
 

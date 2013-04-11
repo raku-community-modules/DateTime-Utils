@@ -14,5 +14,5 @@ my $g1 = DateTime.new(:year(1582), :month(10), :day(4),
 
 my $need = "Mon, 04 Oct 1582 13:02:03 -0800";
 
-is rfc2822($g1), $need, 'rfc2822 format'; # test 1
+is strftime(RFC2822, $g1), $need, 'RFC 2822 format'; # test 1
 
