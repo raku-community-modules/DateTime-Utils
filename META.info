@@ -1,7 +1,11 @@
 {
   "name"        : "DateTime::Utils",
   "version"     : "*",
-  "description" : "strftime and other DateTime enhancements",
-  "depends"     : [ ],
+  "description" : "A meta project for DateTime related libraries.",
+  "depends"     : [ 
+    "DateTime::Format", 
+    "DateTime::Math",
+    "DateTime::TimeZone"
+  ],
   "source-url"    : "git://github.com/supernovus/temporal-utils.git"
 }
