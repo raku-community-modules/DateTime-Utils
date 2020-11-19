@@ -2,7 +2,7 @@
 
 ## Introduction
 
-A collection of libraries to enhance the DateTime object from Perl 6.
+A collection of libraries to enhance the DateTime object from Raku.
 These were at one time part of the original DateTime class within Rakudo,
 but were pulled out and made into separate libraries when we decided to keep
 the Core as simple as possible.
