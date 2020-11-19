@@ -9,5 +9,5 @@
     "DateTime::Math",
     "DateTime::TimeZone"
   ],
-  "source-url"    : "git://github.com/supernovus/temporal-utils.git"
+  "source-url"    : "git://github.com/raku-community-modules/DateTime-Utils.git"
 }
